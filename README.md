@@ -40,6 +40,8 @@ https://codesandbox.io/s/github/pawelrutkowski/vue-workshops
   margin-right: 10px;
 ```
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/master...01_01?expand=1)
+
 </details>
 
 <details>
@@ -64,6 +66,8 @@ export default {
   * Dla wartości pola input dyrektywy `v-model`
   * Dla listy zadań dyrektywy `v-for`, `v-bind:key` i zapisu `{{}}`
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_01...01_02?expand=1)
+
 </details>
 
 <details>
@@ -78,6 +82,8 @@ export default {
 * Sprawdź czy działa dodawanie zadań przy wciśnięciu klawisza Enter przy wprowadzeniu treści zadanie w polu input
 * Sprawdź czy działa dodawanie zadań po wciśnięciu przycisku dodania zadania
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_02...01_03?expand=1)
+
 </details>
 
 <details>
@@ -85,12 +91,16 @@ export default {
 
 * Dodaj filtr `capitalize`, który będzie zwracał tekst w którym pierwsza tylko pierwsze słowo będzie zaczynać się z dużej litery.
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_03...01_04?expand=1)
+
 </details>
 
 <details>
 <summary><strong>Zadanie 5. computed</strong></summary>
 
 * Dodaj w sekcji `template` tekst z liczbą wszystkich zadań, użyj `computed`
+
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_04...01_05?expand=1)
 
 </details>
 
@@ -102,6 +112,8 @@ export default {
   * Jeżeli wartość pola input jest pusta to zwraca `Dodaj zadanie`
   * W innym przypadku zwraca `Dodaj` + wartość pola input
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_05...01_06?expand=1)
+
 </details>
 
 
@@ -112,6 +124,8 @@ export default {
 * Z pliku `App.vue` wyekstrahuj `<li>{{task | capitalize}}</li>` i filtr `capitalize` do nowo utworzonego pliku
 * Komponent powinien przyjmować jako `props` pojedyńcze elementy z tablicy z listą zadań, nazwij ten props `task`, do przekazania argumentu użyj `v-bind:task` w `App.vue`
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_06...01_07?expand=1)
+
 </details>
 
 <details>
@@ -121,6 +135,7 @@ export default {
 * przekaż funkcję do komponentu `ListItem.vue`
 * zmodyfikuj `ListItem.vue` tak aby po kliknięciu na niego wykonywała się przekazana funkcja. Jeżeli zrobisz poprawnie zadanie, w zakłądce `console` powinien wyświetlać się log
 
+[Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_07...01_08?expand=1)
 
 </details>
 
