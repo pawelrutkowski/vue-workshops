@@ -39,7 +39,7 @@ export default {
       return value.charAt(0).toUpperCase() + value.slice(1);
     }
   },
-    computed: {
+  computed: {
     totalTask: function() {
       return this.list.length;
     },
