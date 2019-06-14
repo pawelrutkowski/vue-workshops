@@ -1,14 +1,11 @@
+
 <template>
   <div>
     <h1>{{title}}</h1>
     <input v-model="input" v-on:keyup.enter="addItem" placeholder="Wpisz treść zadania...">
     <button v-on:click="addItem">{{addButtonText}}</button>
     <ul v-for="(task, index) in list" :key="index">
-<<<<<<< HEAD
       <list-item task="task"/>
-=======
-      <li>{{task | capitalize}}</li>
->>>>>>> added filter
     </ul>
     <p>Wszystkie zadania: {{totalTask}}</p>
   </div>
