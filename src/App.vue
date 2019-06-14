@@ -6,6 +6,7 @@
     <ul v-for="(task, index) in list" :key="index">
       <li>{{task | capitalize}}</li>
     </ul>
+    <p>Wszystkie zadania: {{totalTask}}</p>
   </div>
 </template>
 
