@@ -1,11 +1,10 @@
-
 <template>
   <div>
     <h1>{{title}}</h1>
     <input v-model="input" v-on:keyup.enter="addItem" placeholder="Wpisz treść zadania...">
     <button v-on:click="addItem">{{addButtonText}}</button>
     <ul v-for="(task, index) in list" :key="index">
-      <li>{{task | capitalize}}</li>
+      <list-item task="task"/>
     </ul>
     <p>Wszystkie zadania: {{totalTask}}</p>
   </div>
@@ -13,8 +12,10 @@
 
 <script>
 import _ from "lodash";
+import ListItem from "./ListItem";
 
 export default {
+  components: { ListItem },
   data: function() {
     return {
       title: "Moje zadania",
@@ -32,13 +33,6 @@ export default {
       }
     }
   },
-  filters: {
-    capitalize: function(value) {
-      if (!value) return "";
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    }
-  },
   computed: {
     totalTask: function() {
       return this.list.length;
@@ -46,7 +40,8 @@ export default {
   },
   watch: {
     input: _.debounce(function() {
-      this.addButtonText = this.input !== "" ? "Dodaj " + this.input : "Dodaj zadanie";
+      this.addButtonText =
+        this.input !== "" ? "Dodaj " + this.input : "Dodaj zadanie";
     }, 250)
   }
 };
