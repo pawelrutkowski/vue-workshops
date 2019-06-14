@@ -144,7 +144,7 @@ export default {
 <details>
 <summary><strong>Zadanie PWA</strong></summary>
 
-* Otwórz plik “public/manifest.json” i przeanalizuj go
+* Otwórz plik `public/manifest.json` i przeanalizuj go
 * Z lewej strony wybierz ikonę rakiety `Deployment`, rozwiń zakładkę `netify` i wybierz `deploy`. Budowanie może zająć chwilę, po tym czasie powinien pojawić się przycisk `Visit`, który prowadzi do strony z aplikacją.
 * Otwórz aplikację w nowej karcie i dodaj ją do pulpitu na komputerze lub w telefonie.
 
