@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>{{title}}</h1>
-    <input v-model="input" placeholder="Wpisz treść zadania...">
-    <button>{{addButtonText}}</button>
-    <ul v-for="task in list" :key="task">
+    <input v-model="input" v-on:keyup.enter="addItem" placeholder="Wpisz treść zadania...">
+    <button v-on:click="addItem">{{addButtonText}}</button>
+    <ul v-for="(task, index) in list" :key="index">
       <li>{{task}}</li>
     </ul>
   </div>
@@ -18,6 +18,15 @@ export default {
       addButtonText: "Dodaj zadanie",
       list: ["Zadanie 1", "Zadanie 2", "Zadanie 3"]
     };
+  },
+  methods: {
+    addItem: function() {
+      const text = this.input.trim();
+      if (text.length > 0) {
+        this.list.push(text);
+        this.input = "";
+      }
+    }
   }
 };
 </script>
