@@ -10,7 +10,8 @@
   "dependencies": {
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
-    "vue": "^2.5.22"
+    "vue": "^2.5.22",
+    "lodash": "4.17.11"
   },
   "devDependencies": {
     "cross-env": "5.2.0",

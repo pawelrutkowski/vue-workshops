@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <h1>{{title}}</h1>
@@ -11,6 +12,8 @@
 </template>
 
 <script>
+import _ from "lodash";
+
 export default {
   data: function() {
     return {
@@ -41,6 +44,11 @@ export default {
       return this.list.length;
     },
   },
+  watch: {
+    input: _.debounce(function() {
+      this.addButtonText = this.input !== "" ? "Dodaj " + this.input : "Dodaj zadanie";
+    }, 250)
+  }
 };
 </script>
 
