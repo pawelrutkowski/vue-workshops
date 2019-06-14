@@ -4,7 +4,7 @@
     <input v-model="input" v-on:keyup.enter="addItem" placeholder="Wpisz treść zadania...">
     <button v-on:click="addItem">{{addButtonText}}</button>
     <ul v-for="(task, index) in list" :key="index">
-      <li>{{task}}</li>
+      <li>{{task | capitalize}}</li>
     </ul>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
       title: "Moje zadania",
       input: "",
       addButtonText: "Dodaj zadanie",
-      list: ["Zadanie 1", "Zadanie 2", "Zadanie 3"]
+      list: ["zadanie 1", "zadanie 2", "zadanie 3"]
     };
   },
   methods: {
@@ -26,6 +26,13 @@ export default {
         this.list.push(text);
         this.input = "";
       }
+    }
+  },
+  filters: {
+    capitalize: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     }
   }
 };
