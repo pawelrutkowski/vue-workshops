@@ -5,7 +5,7 @@
     <input v-model="input" v-on:keyup.enter="addItem" placeholder="Wpisz treść zadania...">
     <button v-on:click="addItem">{{addButtonText}}</button>
     <ul v-for="(task, index) in list" :key="index">
-      <list-item task="task"/>
+      <list-item v-bind:onClick="onClick" v-bind:task="task"/>
     </ul>
     <p>Wszystkie zadania: {{totalTask}}</p>
   </div>
@@ -32,6 +32,9 @@ export default {
         this.list.push(text);
         this.input = "";
       }
+    },
+    onClick: function(task) {
+      console.log(`Clicked: ${task}`);
     }
   },
   computed: {
