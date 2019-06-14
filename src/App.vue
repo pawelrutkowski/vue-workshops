@@ -1,16 +1,25 @@
 <template>
   <div>
-    <h1>Moje zadania</h1>
-    <input placeholder="Wpisz treść zadania...">
-    <button>Dodaj zadanie</button>
-    <ul>
-      <li>Zadanie1</li>
-      <li>Zadanie2</li>
-      <li>Zadanie3</li>
+    <h1>{{title}}</h1>
+    <input v-model="input" placeholder="Wpisz treść zadania...">
+    <button>{{addButtonText}}</button>
+    <ul v-for="task in list" :key="task">
+      <li>{{task}}</li>
     </ul>
   </div>
 </template>
+
 <script>
+export default {
+  data: function() {
+    return {
+      title: "Moje zadania",
+      input: "",
+      addButtonText: "Dodaj zadanie",
+      list: ["Zadanie 1", "Zadanie 2", "Zadanie 3"]
+    };
+  }
+};
 </script>
 
 <style>
