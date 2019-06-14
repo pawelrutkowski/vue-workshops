@@ -1,64 +1,107 @@
-
 <template>
-  <div>
-    <h1>{{title}}</h1>
-    <input v-model="input" v-on:keyup.enter="addItem" placeholder="Wpisz treść zadania...">
-    <button v-on:click="addItem">{{addButtonText}}</button>
-    <ul v-for="(task, index) in list" :key="index">
-      <list-item v-bind:onClick="onClick" v-bind:task="task"/>
-    </ul>
-    <p>Wszystkie zadania: {{totalTask}}</p>
-  </div>
+  <v-app>
+    <v-toolbar color="blue" app>
+      <v-toolbar-title class="white--text">{{title}}</v-toolbar-title>
+    </v-toolbar>
+
+    <v-content>
+      <v-container>
+        <v-card>
+          <v-card-title primary-title>
+            <v-layout row wrap>
+              <v-flex xs12>
+                <v-text-field v-on:keyup.enter="addItem" v-model="input" label="Wpisz nowe zadanie"></v-text-field>
+              </v-flex>
+              <v-btn v-on:click="addItem">{{ buttonText }}</v-btn>
+            </v-layout>
+          </v-card-title>
+
+          <div>
+            <h3 v-if="list.length === 0">Brak zadań do wykonania</h3>
+            <v-list v-else v-for="(item, index) in list" :key="index">
+              <list-item :key="item.value" :item="item" :index="index" :delelteItem="delelteItem"/>
+            </v-list>
+          </div>
+        </v-card>
+      </v-container>
+    </v-content>
+    <v-footer app>
+      <v-layout>
+        <v-flex>
+          <p>Wszystkie zadania {{totalTask}}</p>
+        </v-flex>
+        <v-flex>
+          <p>Zrobione zadania {{doneTask}}</p>
+        </v-flex>
+      </v-layout>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
 import _ from "lodash";
+import saveState from "vue-save-state";
 import ListItem from "./ListItem";
 
 export default {
-  components: { ListItem },
+  components: {
+    ListItem
+  },
   data: function() {
     return {
-      title: "Moje zadania",
+      title: "Moje Zadania",
       input: "",
-      addButtonText: "Dodaj zadanie",
-      list: ["zadanie 1", "zadanie 2", "zadanie 3"]
+      list: [{ value: "zadanie", checked: false }],
+      buttonText: "Dodaj zadanie"
     };
   },
+  mixins: [saveState],
   methods: {
     addItem: function() {
       const text = this.input.trim();
       if (text.length > 0) {
-        this.list.push(text);
+        this.list.push({ value: text, checked: false });
         this.input = "";
       }
     },
-    onClick: function(task) {
-      console.log(`Clicked: ${task}`);
+    delelteItem: function(index) {
+      this.list.splice(index, 1);
+    },
+    getSaveStateConfig: function() {
+      return {
+        cacheKey: "App",
+        saveProperties: ["title", "input", "list"]
+      };
+    }
+  },
+  filters: {
+    capitalize: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     }
   },
   computed: {
     totalTask: function() {
       return this.list.length;
     },
+    doneTask: function() {
+      return this.list.filter(({ checked }) => checked).length;
+    }
   },
   watch: {
     input: _.debounce(function() {
-      this.addButtonText =
-        this.input !== "" ? "Dodaj " + this.input : "Dodaj zadanie";
+      this.buttonText = this.input !== "" ? "Add " + this.input : "Add Task";
     }, 250)
   }
 };
 </script>
 
 <style>
-button {
-  border: 1px solid black;
-  padding: 2px;
+.todo {
+  font-weight: bold;
 }
-input {
-  outline: 0;
-  border-bottom: 1px solid black;
-  margin-right: 10px;
+.done {
+  text-decoration: line-through;
 }
 </style>
