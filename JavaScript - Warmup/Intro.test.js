@@ -16,6 +16,6 @@ describe("Wprowadzenie do testów", () => {
 
   // Napraw ten test
   it("Test do poprawy", () => {
-    expect(1 + 2).toBe(3);
+    expect(1 + 1).toBe(3);
   });
 });

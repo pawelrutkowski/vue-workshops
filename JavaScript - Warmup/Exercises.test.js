@@ -5,7 +5,7 @@
 // output: liczba elementów w tablicy
 describe("lengthOfArray", () => {
   function lengthOfArray(array) {
-    return array.length;
+    return null;
   }
   it("pusta tablica", () => {
     const array = [];
@@ -25,7 +25,7 @@ describe("lengthOfArray", () => {
 // output: tekst
 describe("getDescription", () => {
   function getDescription(text) {
-    return text === "" ? "Add Element" : "Add " + text;
+    return null;
   }
 
   it("wartość 1", () => {
@@ -46,7 +46,7 @@ describe("getDescription", () => {
 // output: nowa tablica z nowym dodanym elementem
 describe("addItem", () => {
   function addItem(array, item) {
-    return [...array, item.trim()];
+    return null;
   }
 
   it("prosty tekst", () => {
@@ -69,9 +69,7 @@ describe("addItem", () => {
 // output: tablica bez elementu o podanym indeksie
 describe("removeItem", () => {
   function removeItem(array, index) {
-    let newArray = array;
-    newArray.splice(index);
-    return newArray;
+    return null;
   }
 
   it("prosty tekst", () => {
@@ -94,7 +92,7 @@ describe("removeItem", () => {
 // output: tablica bez elementu o podanym indeksie
 describe("capitalize", () => {
   function capitalize(text) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+    return null;
   }
 
   it("text", () => {
@@ -116,7 +114,7 @@ describe("capitalize", () => {
 
 describe("countCheckedItems", () => {
   function countCheckedItems(collection) {
-    return collection.filter(({ checked }) => checked).length;
+    return null;
   }
 
   it("prosty tekst", () => {
