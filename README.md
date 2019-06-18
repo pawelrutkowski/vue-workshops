@@ -35,7 +35,7 @@ https://codesandbox.io/s/github/pawelrutkowski/vue-workshops
 ```
   * tagów html “input”:
 ```
-  outline: 0;
+  border: 0px solid black;
   border-bottom: 1px solid black;
   margin-right: 10px;
 ```
