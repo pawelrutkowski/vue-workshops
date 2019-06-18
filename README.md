@@ -79,8 +79,8 @@ export default {
   * wyczyści wartość pola `input`
 * Dodaj do przycisku dodawania zadania - dyrektywę `v-on:click`, która wywoła funkcję `addItem`
 * Dodaj do pola input  dyrektywę `v-on:keyup.enter`, która wywoła funkcję `addItem`
-* Sprawdź czy działa dodawanie zadań przy wciśnięciu klawisza Enter przy wprowadzeniu treści zadanie w polu input
 * Sprawdź czy działa dodawanie zadań po wciśnięciu przycisku dodania zadania
+* Sprawdź czy działa dodawanie zadań przy wciśnięciu klawisza Enter przy wprowadzeniu treści zadania w polu input
 
 [Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_02...01_03?expand=1)
 
@@ -89,7 +89,7 @@ export default {
 <details>
 <summary><strong>Zadanie 4. Filtry</strong></summary>
 
-* Dodaj filtr `capitalize`, który będzie zwracał tekst w którym pierwsza tylko pierwsze słowo będzie zaczynać się z dużej litery.
+* Dodaj filtr `capitalize`, który będzie zwracał tekst w którym tylko pierwsze słowo będzie zaczynać się z dużej litery. Użyj `capitalize` na elementach listy z zadaniami.
 
 [Rozwiązanie](https://github.com/pawelrutkowski/vue-workshops/compare/01_03...01_04?expand=1)
 
@@ -108,7 +108,7 @@ export default {
 <summary><strong>Zadanie 6. biblioteki + watch</strong></summary>
 
 * Dodaj do projektu bibliotekę `lodash`.
-* Popraw tak zawartość sekcji `template` aby tekst przycisku do dodawania zadań zmieniał się w zależności od zawartości elementu `input`. W tym celu użyj “watch” w sekcji `script` i napisz funkcję, która:
+* Popraw tak zawartość sekcji `template` aby tekst przycisku do dodawania zadań zmieniał się w zależności od zawartości elementu `input`. W tym celu użyj `watch` w sekcji `script` i napisz funkcję, która:
   * Jeżeli wartość pola input jest pusta to zwraca `Dodaj zadanie`
   * W innym przypadku zwraca `Dodaj` + wartość pola input
 
